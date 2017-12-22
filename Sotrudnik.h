@@ -1,5 +1,5 @@
-#ifndef _BLYAD_H
-#define _BLYAD_H
+#ifndef _Sotrudnik_H
+#define _Sotrudnik_H
 #include "Class.h"
 
 class Sotrudnik : public Payment
@@ -11,7 +11,7 @@ private:
 public:
 	Sotrudnik();
 
-	Sotrudnik(char* fio, int okl, int dob, char* prof, int day, int month, int year);
+	Sotrudnik(char* fio, int okl, int dob, char* pos, int day, int month, int year);
 
 	char* show() override;
 

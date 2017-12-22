@@ -1,7 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <Windows.h>
-//#include "Class.h"
 #include "Rabochiy.h"
 #include "Sotrudnik.h"
 #define CIN_FLUSH while(cin.peek()!=10)cin.ignore();cin.ignore()
@@ -165,37 +164,42 @@ void main() {
 	outbin.close();
 */
 
-char* FIO = "Макаров Александр";
-int okl = 70000;
-int dob = 40000;
-char* Position = "Тимлид";
-int day = 3;
-int month = 3;
-int year = 2003;
-
+/*
 Sotrudnik* obj1 = new Sotrudnik();
 Sotrudnik* obj2 = new Sotrudnik();
 
-ifstream intext("Text.txt", ios::in);
+ifstream intext("TextSotr.txt", ios::in);
 intext >> *obj1;
 intext.close();
 
 cout << *obj1 << endl;
 system("pause");
 
-//cin >> *obj1;
-ofstream outbin("Bin.bin", ios::binary);
+cin >> *obj1;
+
+ofstream outbin("BinSotr.bin", ios::binary);
 obj1->output(outbin);
 outbin.close();
 
-ifstream inbin("Bin.bin", ios::binary);
+ifstream inbin("BinSotr.bin", ios::binary);
 obj2->input(inbin);
 inbin.close();
 
-cout << *obj2 << endl;
+
+ofstream outtext("TextSotr.txt", ios::out);
+outtext << *obj1;
+outtext.close();
+
+ifstream intext2("TextSotr.txt", ios::in);
+intext2 >> *obj2;
+intext2.close();
+
+cout << *obj2 << endl; system("pause");
 
 
-system("pause");
 delete obj1;
 delete obj2;
+*/
+
+
 }

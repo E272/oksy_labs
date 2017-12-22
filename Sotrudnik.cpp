@@ -87,27 +87,20 @@ char* Sotrudnik::show()
 	strcat(vr, v);
 	memset(v, '\0', 11);
 	for (i = 0; vr[i] != '\0' && i < 11; i++);
-	vr[i] = '/';
+	vr[i] = ' ';
 	_itoa(monv, v, 10);
 	strcat(vr, v);
 	memset(v, '\0', 11);
 	for (i = 0; vr[i] != '\0' && i < 11; i++);
-	vr[i] = '/';
+	vr[i] = ' ';
 	_itoa(yearv, v, 10);
 	strcat(vr, v);
+	for (i = 0; vr[i] != '\0' && i < 11; i++);
 	int razm = strlen(FIO) + strlen(okl) + strlen(vr) + strlen(otc) + strlen(pod) + strlen(sum) + strlen(Position) + strlen(dobv) + 8;
 	char *bufer = new char[razm];
 	memset(bufer, '\0', razm);
 	
 	strcpy(bufer, FIO);
-
-	for (i = 0; bufer[i] != '\0' && i < razm; i++);
-	bufer[i] = ' ';
-	strcat(bufer, Position);
-	
-	for (i = 0; bufer[i] != '\0' && i < razm; i++);
-	bufer[i] = ' ';
-	strcat(bufer, vr);
 	
 	for (i = 0; bufer[i] != '\0' && i < razm; i++);
 	bufer[i] = ' ';
@@ -116,6 +109,14 @@ char* Sotrudnik::show()
 	for (i = 0; bufer[i] != '\0' && i < razm; i++);
 	bufer[i] = ' ';
 	strcat(bufer, dobv);
+
+	for (i = 0; bufer[i] != '\0' && i < razm; i++);
+	bufer[i] = ' ';
+	strcat(bufer, Position);
+
+	for (i = 0; bufer[i] != '\0' && i < razm; i++);
+	bufer[i] = ' ';
+	strcat(bufer, vr);
 
 	for (i = 0; bufer[i] != '\0' && i < razm; i++);
 	bufer[i] = ' ';
@@ -180,7 +181,7 @@ std::istream& operator >> (std::istream& is, Sotrudnik& a) {
 std::ostream& operator << (std::ostream& os, Sotrudnik& a) {
 	char *c;
 	c = a.show();
-	os << c << endl;
+	os << c;
 	delete c;
 	return os;
 }
