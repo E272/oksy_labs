@@ -238,10 +238,17 @@ std::ofstream& operator << (std::ofstream& os, Sotrudnik& a) {
 std::ifstream& Sotrudnik::input(std::ifstream& is) {
 	int len;
 	is.read((char*)&len, sizeof(int));
-	delete FIO;
+	delete[]FIO;
 	FIO = new char[len + 1];
-	is.read((char*)FIO, len * sizeof(char));
+	is.read(FIO, len * sizeof(char));
+	FIO[len] = 0;
 	is.read((char*)&oklad, sizeof(float));
+	is.read((char*)&len, sizeof(int));
+	delete[] Position;
+	Position = new char[len + 1];
+	is.read(Position, len * sizeof(char));
+	Position[len] = 0;
+	is.read((char*)&dob, sizeof(int));
 	is.read((char*)&dayv, sizeof(int));
 	is.read((char*)&monv, sizeof(int));
 	is.read((char*)&yearv, sizeof(int));
@@ -250,11 +257,13 @@ std::ifstream& Sotrudnik::input(std::ifstream& is) {
 
 std::ofstream& Sotrudnik::output(std::ofstream& os) {
 	int len = strlen(FIO);
-	len++;
 	os.write((char*)&len, sizeof(int));
-	for (int i = 0; i<len; i++)
-		os.write((char*)&FIO[i], sizeof(char));
+		os.write(FIO, len*sizeof(char));
 	os.write((char*)&oklad, sizeof(float));
+	len = strlen(Position);
+	os.write((char*)&len, sizeof(int));
+	os.write((char*)Position, len*sizeof(char));
+	os.write((char*)&dob, sizeof(int));
 	os.write((char*)&dayv, sizeof(int));
 	os.write((char*)&monv, sizeof(int));
 	os.write((char*)&yearv, sizeof(int));
@@ -264,4 +273,9 @@ std::ofstream& Sotrudnik::output(std::ofstream& os) {
 Sotrudnik& Sotrudnik::operator=(const Sotrudnik &a)
 {
 	return *this;
+}
+
+Sotrudnik::~Sotrudnik()
+{
+	delete[] Position;
 }

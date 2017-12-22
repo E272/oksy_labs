@@ -13,7 +13,7 @@ void MENU()
 
 }
 
-int main() {
+void main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 /*	
@@ -173,18 +173,29 @@ int day = 3;
 int month = 3;
 int year = 2003;
 
-Sotrudnik* obj = new Sotrudnik();
-/*
+Sotrudnik* obj1 = new Sotrudnik();
+Sotrudnik* obj2 = new Sotrudnik();
+
 ifstream intext("Text.txt", ios::in);
-intext >> *obj;
+intext >> *obj1;
 intext.close();
-*/
 
-cin >> *obj;
-
-cout << *obj << endl;
-
+cout << *obj1 << endl;
 system("pause");
 
-	return 0;
+//cin >> *obj1;
+ofstream outbin("Bin.bin", ios::binary);
+obj1->output(outbin);
+outbin.close();
+
+ifstream inbin("Bin.bin", ios::binary);
+obj2->input(inbin);
+inbin.close();
+
+cout << *obj2 << endl;
+
+
+system("pause");
+delete obj1;
+delete obj2;
 }

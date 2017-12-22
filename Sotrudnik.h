@@ -24,5 +24,7 @@ public:
 	std::ofstream& output(std::ofstream& os);
 
 	Sotrudnik& operator=(const Sotrudnik &a);
+
+	~Sotrudnik();
 };
 #endif
