@@ -2,14 +2,22 @@
 #include <iostream>
 #include <Windows.h>
 #include "Class.h"
+#include "Rabochiy.h"
+#include "Sotrudnik.h"
 #define CIN_FLUSH while(cin.peek()!=10)cin.ignore();cin.ignore()
 
 using namespace std;
 
+void MENU()
+{
+
+}
+
 int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	/*char *c = new char[100];
+/*	
+	char *c = new char[100];
 	char* str = nullptr;
 	int qwe;
 	int d;
@@ -155,7 +163,7 @@ int main() {
 
 	outtext.close();
 	outbin.close();
-	*/
+*/
 
 	
 

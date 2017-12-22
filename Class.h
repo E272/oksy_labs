@@ -1,17 +1,10 @@
+#ifndef HUI_H_
+#define HUI_h_
 #define _CRT_SECURE_NO_WARNINGS
 #include <ctime>
 #include <fstream>
 
 class Payment {
-	/*char * FIO;
-	float oklad;
-	int dayv;
-	int monv;
-	int yearv;
-	double ot;
-	double p;
-	double s;
-	*/
 public:
 	static int proch;
 	Payment();
@@ -19,8 +12,8 @@ public:
 	Payment(const Payment &a);
 	~Payment();
 	virtual int summa();
-	int otchisl();
-	int podoh();
+	virtual int otchisl();
+	virtual int podoh();
 	virtual char* show();
 	friend Payment operator+(Payment a, int k);
 	friend Payment operator-(Payment a, int k);
@@ -47,3 +40,4 @@ protected:
 	double p;
 	double s;
 };
+#endif
