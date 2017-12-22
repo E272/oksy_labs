@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <Windows.h>
-#include "Class.h"
+//#include "Class.h"
 #include "Rabochiy.h"
 #include "Sotrudnik.h"
 #define CIN_FLUSH while(cin.peek()!=10)cin.ignore();cin.ignore()
@@ -165,7 +165,19 @@ int main() {
 	outbin.close();
 */
 
-	
+char* FIO = "Макаров Александр";
+int okl = 70000;
+int dob = 40000;
+char* Position = "Тимлид";
+int day = 3;
+int month = 3;
+int year = 2003;
+
+Sotrudnik* obj = new Sotrudnik(FIO, okl, dob, Position, day, month, year);
+
+cout << obj->show() << endl;
+
+system("pause");
 
 	return 0;
 }

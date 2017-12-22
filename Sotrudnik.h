@@ -9,15 +9,13 @@ private:
 	char* Position;
 
 public:
-	Sotrudnik(int dob, char* prof);
-
-	int summa() override;
-
-	int otchisl() override;
-
-	int podoh() override;
+	Sotrudnik(char* fio, int okl, int dob, char* prof, int day, int month, int year);
 
 	char* show() override;
 
+
+
+
+	Payment& operator=(const Payment &a);
 };
 #endif
