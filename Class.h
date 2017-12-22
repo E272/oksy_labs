@@ -1,5 +1,5 @@
 #ifndef HUI_H_
-#define HUI_h_
+#define HUI_H_
 #define _CRT_SECURE_NO_WARNINGS
 #include <ctime>
 #include <fstream>

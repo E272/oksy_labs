@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _BLYAD_H
+#define _BLYAD_H
 #include "Class.h"
 
 class Sotrudnik : public Payment
@@ -19,3 +20,4 @@ public:
 	char* show() override;
 
 };
+#endif

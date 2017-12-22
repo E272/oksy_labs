@@ -16,11 +16,13 @@ int Sotrudnik::summa()
 	return s;
 }
 
+int Sotrudnik
+
 char* Sotrudnik::show()
 {
 	char* str = nullptr;
-
-
-
+	
+	
+	
 	return str;
 }

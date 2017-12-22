@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _RAB_H
+#define _RAB_H
 #include "Class.h"
 
 class Rabochiy : public Payment
@@ -16,3 +17,4 @@ public:
 
 
 };
+#endif
