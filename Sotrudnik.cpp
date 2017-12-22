@@ -1,4 +1,14 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include "iostream"
 #include "Sotrudnik.h"
+
+using namespace std;
+
+Sotrudnik::Sotrudnik():Payment()
+{
+	dob = 0;
+	Position = new char;
+}
 
 Sotrudnik::Sotrudnik(char* fio, int okl, int doba, char* posi, int day, int month, int year):Payment(fio, okl, day, month, year)
 {
@@ -128,4 +138,121 @@ char* Sotrudnik::show()
 	delete[]dobv;
 	
 	return bufer;
+}
+
+std::istream& operator >> (std::istream& is, Sotrudnik& a) {
+	char *c = new char[100];
+	if (cin.peek()) {
+		is.ignore();
+	}
+	is.getline(c, 100, '\n');
+	int o;
+	is >> o;
+
+	int db;
+	is >> db;
+
+	char* pos = new char[100];
+	is.getline(c, 100, '\n');
+
+	int d, m, y;
+	do {
+		is >> d >> m >> y;
+		if (0 >= d && d >= 32) cout << "Неверный формат времени!" << endl;
+		if (0 >= m && m >= 13) cout << "Неверный формат месяца!" << endl;
+		if (y >= 2018) cout << "Неверный формат года!" << endl;
+	} while (0 >= d && d >= 32 && 0 >= m && m >= 13 && y >= 2018);
+	Sotrudnik *t = new Sotrudnik(c, o, db, pos, d, m, y);
+	a = *t;
+	delete t;
+	delete[] c;
+	return is;
+}
+std::ostream& operator << (std::ostream& os, Sotrudnik& a) {
+	char *c;
+	c = a.show();
+	os << c << endl;
+	delete c;
+	return os;
+}
+std::ifstream& operator >> (std::ifstream& is, Sotrudnik& a) {
+	char *sr = new char[20];
+	char *n = new char[20];
+	char *sn = new char[20];
+	is >> sr >> n >> sn;
+	char *c = new char[70];
+	strcpy(c, sr);
+	strcat(c, " ");
+	strcat(c, n);
+	strcat(c, " ");
+	strcat(c, sn);
+	int o;
+	is >> o;
+
+	int db;
+	is >> db;
+
+	char* pos = new char[100];
+	is >> pos;
+
+	int d, m, y;
+	do {
+		is >> d >> m >> y;
+		if (0 >= d && d >= 32) cout << "Неверный формат времени!" << endl;
+		if (0 >= m && m >= 13) cout << "Неверный формат месяца!" << endl;
+		if (y >= 2018) cout << "Неверный формат года!" << endl;
+	} while (0 >= d && d >= 32 && 0 >= m && m >= 13 && y >= 2018);
+	//Sotrudnik *t = new Sotrudnik(c, o, db, pos, d, m, y);
+	//a = *t;
+	a.yearv = y;
+	a.monv = m;
+	a.dayv = d;
+	delete[]a.FIO;
+	a.FIO = c;
+	a.oklad = o;
+	a.dob = db;
+	delete[]a.Position;
+	a.Position = pos;
+	delete[]sr;
+	delete[]n;
+	delete[]sn;
+	return is;
+}
+std::ofstream& operator << (std::ofstream& os, Sotrudnik& a) {
+	char *c;
+	c = a.show();
+	os << c << endl;
+	delete[] c;
+	return os;
+}
+
+std::ifstream& Sotrudnik::input(std::ifstream& is) {
+	int len;
+	is.read((char*)&len, sizeof(int));
+	delete FIO;
+	FIO = new char[len + 1];
+	is.read((char*)FIO, len * sizeof(char));
+	is.read((char*)&oklad, sizeof(float));
+	is.read((char*)&dayv, sizeof(int));
+	is.read((char*)&monv, sizeof(int));
+	is.read((char*)&yearv, sizeof(int));
+	return is;
+}
+
+std::ofstream& Sotrudnik::output(std::ofstream& os) {
+	int len = strlen(FIO);
+	len++;
+	os.write((char*)&len, sizeof(int));
+	for (int i = 0; i<len; i++)
+		os.write((char*)&FIO[i], sizeof(char));
+	os.write((char*)&oklad, sizeof(float));
+	os.write((char*)&dayv, sizeof(int));
+	os.write((char*)&monv, sizeof(int));
+	os.write((char*)&yearv, sizeof(int));
+	return os;
+}
+
+Sotrudnik& Sotrudnik::operator=(const Sotrudnik &a)
+{
+	return *this;
 }

@@ -173,10 +173,13 @@ int day = 3;
 int month = 3;
 int year = 2003;
 
-Sotrudnik* obj = new Sotrudnik(FIO, okl, dob, Position, day, month, year);
+Sotrudnik* obj = new Sotrudnik();
 
-cout << obj->show() << endl;
+ifstream intext("Text.txt", ios::in);
+intext >> *obj;
 
+cout << *obj << endl;
+intext.close();
 system("pause");
 
 	return 0;
