@@ -75,7 +75,6 @@ int Payment::podoh() {
 	int r;
 	r = (now->tm_year - yearv) * 12 + (now->tm_mon - monv);
 	return r*p;
-	//	delete now;
 }
 int Payment::summa() {
 	s = oklad - oklad / 100 - oklad / 100 * 12;
