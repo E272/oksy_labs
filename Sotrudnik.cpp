@@ -142,19 +142,23 @@ char* Sotrudnik::show()
 
 std::istream& operator >> (std::istream& is, Sotrudnik& a) {
 	char *c = new char[100];
-	if (cin.peek()) {
-		is.ignore();
-	}
+	cout << "Введите ФИО-";
 	is.getline(c, 100, '\n');
+	cout << "Введите оклад-";
 	int o;
 	is >> o;
-
+	cout << "Введите надбавку";
 	int db;
 	is >> db;
+	
+		is.clear();
+			is.ignore();
 
+	cout << "Введите должность-"; 
 	char* pos = new char[100];
-	is.getline(c, 100, '\n');
+	is.getline(pos, 100);
 
+	cout << "Введите день/месяц/год-";
 	int d, m, y;
 	do {
 		is >> d >> m >> y;
@@ -162,10 +166,15 @@ std::istream& operator >> (std::istream& is, Sotrudnik& a) {
 		if (0 >= m && m >= 13) cout << "Неверный формат месяца!" << endl;
 		if (y >= 2018) cout << "Неверный формат года!" << endl;
 	} while (0 >= d && d >= 32 && 0 >= m && m >= 13 && y >= 2018);
-	Sotrudnik *t = new Sotrudnik(c, o, db, pos, d, m, y);
-	a = *t;
-	delete t;
-	delete[] c;
+	a.yearv = y;
+	a.monv = m;
+	a.dayv = d;
+	delete[]a.FIO;
+	a.FIO = c;
+	a.oklad = o;
+	a.dob = db;
+	delete[]a.Position;
+	a.Position = pos;
 	return is;
 }
 std::ostream& operator << (std::ostream& os, Sotrudnik& a) {

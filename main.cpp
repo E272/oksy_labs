@@ -174,12 +174,16 @@ int month = 3;
 int year = 2003;
 
 Sotrudnik* obj = new Sotrudnik();
-
+/*
 ifstream intext("Text.txt", ios::in);
 intext >> *obj;
+intext.close();
+*/
+
+cin >> *obj;
 
 cout << *obj << endl;
-intext.close();
+
 system("pause");
 
 	return 0;
