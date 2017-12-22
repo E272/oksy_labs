@@ -16,7 +16,15 @@ int Sotrudnik::summa()
 	return s;
 }
 
-int Sotrudnik
+int Sotrudnik::otchisl()
+{
+	return 0;
+}
+
+int Sotrudnik::podoh()
+{
+	return 0;
+}
 
 char* Sotrudnik::show()
 {
