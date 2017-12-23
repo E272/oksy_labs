@@ -164,6 +164,18 @@ void main() {
 	outbin.close();
 */
 
+char* Fio = "Макаров Александр Владиленович";
+int okl = 50000;
+int dop = 25000;
+int payo = 2000;
+int houro = 216;
+int day = 2;
+int month = 2;
+int year = 2012;
+char* prof = "Программист";
+char* posi = "Тимлид";
+
+
 /*
 Sotrudnik* obj1 = new Sotrudnik();
 Sotrudnik* obj2 = new Sotrudnik();
@@ -201,5 +213,10 @@ delete obj1;
 delete obj2;
 */
 
+Rabochiy* obj_rab1 = new Rabochiy();
+Rabochiy* obj_rab2 = new Rabochiy();
 
+obj_rab1 = new Rabochiy(Fio, okl, payo, houro, prof, day, month, year);
+cout << *obj_rab1 << endl;
+system("pause");
 }

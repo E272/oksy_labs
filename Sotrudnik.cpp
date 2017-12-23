@@ -273,6 +273,17 @@ std::ofstream& Sotrudnik::output(std::ofstream& os) {
 
 Sotrudnik& Sotrudnik::operator=(const Sotrudnik &a)
 {
+	int r = strlen(a.FIO);
+	FIO = new char[r + 1];
+	strcpy(FIO, a.FIO);
+	oklad = a.oklad;
+	dob = a.dob;
+	ot = a.ot;
+	p = a.p;
+	s = a.s;
+	dayv = a.dayv;
+	monv = a.monv;
+	yearv = a.yearv;
 	return *this;
 }
 

@@ -18,6 +18,8 @@ Rabochiy::Rabochiy(char* fio, int okl, int pay, int hourp, char* prof, int day, 
 	oklad = pay_for_hour*hour_per_month;
 	int size = strlen(prof);
 	Proffesion = new char(size + 1);
+	for (int i=0; i<size; i++)
+	Proffesion[i] = prof[i];
 	Proffesion[size] = '\0';
 }
 
@@ -59,6 +61,32 @@ char* Rabochiy::show()
 		j++;
 	}
 	payf[j++] = '\0';
+
+	len_str = 0;
+	a = hour_per_month;
+	k = 1;
+	j = 0;
+
+	if (a == 0)
+	{
+		houro[j] = '0';
+		j++;
+	}
+
+	while (a != 0) {
+		a /= 10;
+		k *= 10;
+	}
+	k /= 10;
+
+	while (k != 0) {
+		a = hour_per_month;
+		char x = (a / k % 10) + 48;
+		k /= 10;
+		houro[j] = x;
+		j++;
+	}
+	houro[j++] = '\0';
 
 	/*Зарплата*/
 	Rabochiy::summa();
@@ -288,6 +316,18 @@ std::ofstream& Rabochiy::output(std::ofstream& os) {
 
 Rabochiy& Rabochiy::operator=(const Rabochiy &a)
 {
+	int r = strlen(a.FIO);
+	FIO = new char[r + 1];
+	strcpy(FIO, a.FIO);
+	oklad = a.oklad;
+	pay_for_hour = a.pay_for_hour;
+	hour_per_month = a.hour_per_month;
+	ot = a.ot;
+	p = a.p;
+	s = a.s;
+	dayv = a.dayv;
+	monv = a.monv;
+	yearv = a.yearv;
 	return *this;
 }
 
