@@ -216,7 +216,33 @@ delete obj2;
 Rabochiy* obj_rab1 = new Rabochiy();
 Rabochiy* obj_rab2 = new Rabochiy();
 
-obj_rab1 = new Rabochiy(Fio, okl, payo, houro, prof, day, month, year);
+//obj_rab1 = new Rabochiy(Fio, okl, payo, houro, prof, day, month, year);
+
+/*ifstream intext1("TextRab.txt", ios::in);
+intext1 >> *obj_rab1;
+intext1.close();
+
+ofstream outtext1("TextRab.txt", ios::out);
+outtext1 << *obj_rab1;
+outtext1.close();
+
+ifstream intext2("TextRab.txt", ios::in);
+intext2 >> *obj_rab2;
+intext2.close();*/
+
+ifstream inbin1("BinRab.bin", ios::binary);
+obj_rab1->input(inbin1);
+inbin1.close();
+
+ofstream outbin1("BinRab.bin", ios::binary);
+obj_rab1->output(outbin1);
+outbin1.close();
+
+ifstream inbin2("BinRab.bin", ios::binary);
+obj_rab2->input(inbin2);
+inbin2.close();
+
 cout << *obj_rab1 << endl;
+cout << *obj_rab2 << endl;
 system("pause");
 }
