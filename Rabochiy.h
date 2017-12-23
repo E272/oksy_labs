@@ -16,7 +16,8 @@ public:
 
 	char* show() override;
 
-
+	Rabochiy operator+(int k);
+	Rabochiy operator-(int k);
 	friend std::istream& operator>> (std::istream& is, Rabochiy &a);
 	friend std::ostream& operator<< (std::ostream& os, Rabochiy &a);
 	friend std::ifstream& operator>> (std::ifstream& is, Rabochiy &a);

@@ -141,6 +141,19 @@ char* Sotrudnik::show()
 	return bufer;
 }
 
+Sotrudnik Sotrudnik::operator+(int k)
+{
+	Sotrudnik dh = *this;
+	dh.oklad = this->oklad + k;
+	return dh;
+}
+Sotrudnik Sotrudnik::operator-(int k)
+{
+	Sotrudnik dh = *this;
+	dh.oklad = this->oklad - k;
+	return dh;
+}
+
 std::istream& operator >> (std::istream& is, Sotrudnik& a) {
 	char *c = new char[100];
 	cout << "Ââåäèòå ÔÈÎ-";

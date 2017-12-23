@@ -176,6 +176,19 @@ char* Rabochiy::show()
 	return bufer;
 }
 
+Rabochiy Rabochiy::operator+(int k) 
+{
+	Rabochiy dh = *this;
+	dh.oklad = this->oklad + k;
+	return dh;
+}
+Rabochiy Rabochiy::operator-(int k)
+{
+	Rabochiy dh = *this;
+	dh.oklad = this->oklad - k;
+	return dh;
+}
+
 std::istream& operator >> (std::istream& is, Rabochiy& a) {
 	char *c = new char[100];
 	cout << "Ââåäèòå ÔÈÎ-";

@@ -15,7 +15,8 @@ public:
 
 	char* show() override;
 
-
+	Sotrudnik operator+(int k);
+	Sotrudnik operator-(int k);
 	friend std::istream& operator>> (std::istream& is, Sotrudnik &a);
 	friend std::ostream& operator<< (std::ostream& os, Sotrudnik &a);
 	friend std::ifstream& operator>> (std::ifstream& is, Sotrudnik &a);
