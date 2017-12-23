@@ -4,9 +4,10 @@
 
 using namespace std;
 
-Rabochiy::Rabochiy():Payment()
+Rabochiy::Rabochiy()
 {
-	Proffesion = new char;
+	//Proffesion = new char;
+	Proffesion = nullptr;
 	pay_for_hour = 0;
 	hour_per_month = 0;
 }
@@ -60,10 +61,10 @@ char* Rabochiy::show()
 	}
 	payf[j++] = '\0';
 
-	/*Зарплата*/
+	/*пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ*/
 	Rabochiy::summa();
 
-	/*Отчисления*/
+	/*пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ*/
 	struct tm* now;
 	time_t t;
 	time(&t);
@@ -72,7 +73,7 @@ char* Rabochiy::show()
 	now->tm_year += 1900;
 	ot = oklad / 100;
 
-	/*Подоходный налог*/
+	/*пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ*/
 	p = oklad / 100 * proch;
 
 	memset(okl, '\0', 11);
@@ -150,32 +151,32 @@ char* Rabochiy::show()
 
 std::istream& operator >> (std::istream& is, Rabochiy& a) {
 	char *c = new char[100];
-	cout << "Введите ФИО-";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-";
 	is.getline(c, 100, '\n');
-	cout << "Введите оклад-";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ-";
 	int o;
 	is >> o;
-	cout << "Введите плату за час-";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ-";
 	int payf;
 	is >> payf;
-	cout << "Введите количество часов в месяц-";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ-";
 	int houro;
 	is >> houro;
 
 	is.clear();
 	is.ignore();
 
-	cout << "Введите должность-";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-";
 	char* prof = new char[100];
 	is.getline(prof, 100);
 
-	cout << "Введите день/месяц/год-";
+	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅ-";
 	int d, m, y;
 	do {
 		is >> d >> m >> y;
-		if (0 >= d && d >= 32) cout << "Неверный формат времени!" << endl;
-		if (0 >= m && m >= 13) cout << "Неверный формат месяца!" << endl;
-		if (y >= 2018) cout << "Неверный формат года!" << endl;
+		if (0 >= d && d >= 32) cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!" << endl;
+		if (0 >= m && m >= 13) cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ!" << endl;
+		if (y >= 2018) cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ!" << endl;
 	} while (0 >= d && d >= 32 && 0 >= m && m >= 13 && y >= 2018);
 	a.yearv = y;
 	a.monv = m;
@@ -193,7 +194,7 @@ std::ostream& operator << (std::ostream& os, Rabochiy& a) {
 	char *c;
 	c = a.show();
 	os << c;
-	delete c;
+	delete[]c;
 	return os;
 }
 std::ifstream& operator >> (std::ifstream& is, Rabochiy& a) {
@@ -222,9 +223,9 @@ std::ifstream& operator >> (std::ifstream& is, Rabochiy& a) {
 	int d, m, y;
 	do {
 		is >> d >> m >> y;
-		if (0 >= d && d >= 32) cout << "Неверный формат времени!" << endl;
-		if (0 >= m && m >= 13) cout << "Неверный формат месяца!" << endl;
-		if (y >= 2018) cout << "Неверный формат года!" << endl;
+		if (0 >= d && d >= 32) cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!" << endl;
+		if (0 >= m && m >= 13) cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ!" << endl;
+		if (y >= 2018) cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ!" << endl;
 	} while (0 >= d && d >= 32 && 0 >= m && m >= 13 && y >= 2018);
 	a.yearv = y;
 	a.monv = m;
